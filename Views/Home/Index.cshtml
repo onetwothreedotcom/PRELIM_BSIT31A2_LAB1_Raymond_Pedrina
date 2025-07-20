@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Student and Course Information Example</p>
+    <p>Today is: @ViewBag.Today</p>
+</div>
+
+<hr />
+
+<div>
+    <h2>Student Information</h2>
+    <p><strong>Name:</strong> @ViewBag.StudentName</p>
+    <p><strong>Score:</strong> @ViewBag.Score</p>
+    <p><strong>Passed:</strong> @ViewBag.IsPassed</p>
+    <p><strong>Remarks:</strong> @ViewBag.Message</p>
+    <p><strong>Exam Date:</strong> @ViewBag.ExamDate</p>
+    <p><strong>Tuition Fee:</strong> ₱@ViewBag.TuitionFee</p>
+    <p><strong>Tuition Fee after Discount:</strong> ₱@ViewBag.NetFee</p>
+</div>
+
+<hr />
+<div>
+    <h2>Courses</h2>
+    <p><strong>List:</strong> @ViewBag.AllCourses</p>
+    <p><strong>Total Courses:</strong> @ViewBag.CourseCount</p>
+</div>
+
+<hr />
+<div>
+    <h2>Student List</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in ViewBag.Students)
+            {
+                    <tr>
+                        <td>@student.Name</td>
+                        <td>@student.Age</td>
+                        <td>@student.Course</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>
